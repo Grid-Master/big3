@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  font-family: Avenir;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--ui-dark-grey, #303030);
+/* Avenir / Medium / 14 */
+font-family: Avenir;
+font-size: 14px !important;
+font-style: normal;
+font-weight: 500;
+line-height: 24px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: local('Avenir'),
+  url('./assets/fonts/AvenirLTStd-Roman.otf');
+  /* font-weight: bold; */
+}

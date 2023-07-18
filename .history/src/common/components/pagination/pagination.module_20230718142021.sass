@@ -1,0 +1,75 @@
+.pagination
+    display: flex
+    gap: 16px
+    align-items: center
+.pageItem
+    cursor: pointer
+    width: 40px
+    height: 40px
+    border-radius: 4px
+    background: inherit
+.pageLink
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    color: var(--ui-grey, #707070)
+    font-size: 14px
+    font-style: normal
+    font-weight: 500
+    line-height: 24px
+    width: 40px
+    height: 40px
+.break
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    width: 40px
+    height: 40px
+.breakLink
+    color: var(--ui-grey, #707070)
+    text-align: center
+    font-size: 14px
+    font-style: normal
+    font-weight: 500
+    line-height: 24px
+.active
+    background: var(--ui-red, #E4163A)
+    .pageLink
+        color: var(--ui-white, #FFF) !important
+.previous, .next
+    cursor: pointer
+    width: 40px
+    height: 40px
+    .previousLink, .nextLink
+        width: 40px
+        height: 40px
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+
+@media (max-width: 1000px)
+    .pagination
+        gap: 7.5px
+    .pageItem
+        width: 30px
+        height: 30px
+    .pageLink
+        width: 30px
+        height: 30px
+        font-size: 15px
+    .break
+        width: 30px
+        height: 30px
+    .breakLink
+        height: 30px
+        width: 30px
+        font-size: 15px
+    .previous, .next
+        width: 30px
+        height: 30px
+        .previousLink, .nextLink
+            width: 30px
+            height: 30px

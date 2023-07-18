@@ -1,0 +1,51 @@
+.container
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: 6px 32px
+    color: var(--ui-grey, #707070)
+    font-style: normal
+    font-weight: 500
+    line-height: normal
+    border-bottom: 0.5px solid var(--ui-light-grey, #9C9C9C)
+    border-left: 0.5px solid var(--ui-light-grey, #9C9C9C)
+    border-right: 0.5px solid var(--ui-light-grey, #9C9C9C)
+    border-radius: 0 0 10px 10px
+    background: var(--ui-white, #FFF)
+    .player
+        display: flex
+        align-items: center
+        >p
+            width: 40px
+            margin-right: 10px
+        >div
+            display: flex
+            align-items: flex-start
+            .imageContainer
+                margin-right: 10px
+                width: 40px
+                height: 40px
+                img
+                    width: 40px
+                    height: 40px
+                    border-radius: 50%
+            p
+                font-size: 12px
+                margin-top: 4px
+                color: var(--gray, #888987)
+    .characteristic
+        position: relative
+        .height
+            position: absolute
+            top: -7px
+            right: 228px
+            width: 55px
+        .weight
+            position: absolute
+            top: -7px
+            right: 102px
+            width: 55px
+        .age
+            position: absolute
+            top: -7px
+            right: 12px

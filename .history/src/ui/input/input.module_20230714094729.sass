@@ -1,0 +1,29 @@
+.container
+    width: 100%
+    color: var(--ui-grey, #707070)
+    font-size: 14px
+    font-style: normal
+    font-weight: 500
+    line-height: 24px
+    position: relative
+    .input
+        display: block
+        width: 100%
+        margin-top: 8px
+        margin-bottom: 26px
+        height: 40px
+        border: none
+        outline: none
+        border-radius: 4px
+        background: var(--ui-lightest-grey-1, #F6F6F6)
+        transition: .2s
+        &:hover
+            background: var(--ui-lightest-grey, #D1D1D1)
+        &:focus
+            box-shadow: 0px 0px 5px 0px #D9D9D9
+        &:required
+            border: 1px solid var(--ui-lightest-red, #FF768E)
+    .icon
+        position: absolute
+        top: 15px
+        right: 0

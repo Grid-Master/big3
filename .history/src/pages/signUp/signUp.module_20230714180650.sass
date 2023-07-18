@@ -1,0 +1,63 @@
+.container
+    background: var(--ui-light-blue, #F5FBFF)
+    display: flex
+    .form
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        width: 606px
+        height: 100vh
+        background: var(--ui-white, #FFF)
+        padding: 0 120px
+    .title
+        width: 100%
+        margin-bottom: 32px
+        color: var(--ui-blue, #344472)
+        font-size: 36px
+        font-style: normal
+        font-weight: 400
+        line-height: normal
+    .accept
+        margin-bottom: 24px
+        width: 100%
+        display: flex
+        align-content: center
+        color: var(--ui-grey, #707070)
+        font-size: 14px
+        font-style: normal
+        font-weight: 500
+        line-height: 24px
+        input
+            margin-right: 8px
+            transform: translateY(-1px)
+    .signin
+        cursor: pointer
+        margin-top: 24px
+        color: #707070
+        font-size: 14px
+        font-style: normal
+        font-weight: 500
+        line-height: 24px
+        a
+            color: var(--ui-red, #E4163A)
+            text-decoration-line: underline
+            &:hover
+                color: var(--ui-light-red, #FF5761)
+    .imageContainer
+        display: flex
+        flex: 1
+        flex-direction: column
+        align-items: center
+        justify-content: center
+@media screen and (max-width: 1255px)
+    .container
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        background: #ffffff
+        .form
+            width: 606px
+        .imageContainer
+            display: none

@@ -1,0 +1,54 @@
+.menu
+    background: var(--ui-white, #FFF)
+    box-shadow: 0px 1px 10px 0px rgba(209, 209, 209, 0.50)
+    width: 140px
+    height: calc( 100vh - 80px )
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-between
+    padding: 32px 0
+    .button
+        cursor: pointer
+        display: flex
+        flex-direction: column
+        align-items: center
+        border: none
+        outline: none
+        background: none
+        color: var(--ui-lightest-red, #FF768E)
+        svg
+            margin-bottom: 4px
+    .link
+        text-decoration: none
+        cursor: pointer
+        display: flex
+        flex-direction: column
+        align-items: center
+        margin-bottom: 36px
+        color: var(--ui-light-grey, #9C9C9C)
+        font-family: Avenir
+        font-size: 12px
+        font-style: normal
+        font-weight: 500
+        line-height: 150%
+        p
+            margin-top: 4px
+            color: var(--ui-light-grey, #9C9C9C)
+            transition: .2s
+        svg *
+            fill: var(--ui-light-grey, #9C9C9C)
+            transition: .2s
+        &:hover
+
+    .active
+        p
+            color: var(--ui-red, #E4163A)
+        svg *
+            fill: var(--ui-red, #E4163A)
+
+@media (max-width: 1000px)
+    .menu
+        flex-direction: row
+        height: fit-content
+        width: 100%
