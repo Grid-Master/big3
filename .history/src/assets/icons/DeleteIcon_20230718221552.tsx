@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../common/hooks/reduxHooks';
 import { deleteTeam } from '../../modules/teamInfo/teamInfoThunk';
 
@@ -9,13 +8,10 @@ interface IDeleteIcon {
 
 const DeleteIcon: FC<IDeleteIcon> = ({ id }) => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   const deleteItem = async () => {
     if (id) {
       await dispatch(deleteTeam(id));
-      alert('Team was deleted');
-      navigate('/teams');
     }
   };
 

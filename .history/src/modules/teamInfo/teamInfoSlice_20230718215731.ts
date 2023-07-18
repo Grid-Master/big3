@@ -29,7 +29,7 @@ const teamInfoSlice = createSlice({
     });
     //dele team
     builder.addCase(deleteTeam.pending, (state, action) => {});
-    builder.addCase(deleteTeam.fulfilled, (state) => {
+    builder.addCase(deleteTeam.fulfilled, (state, action: PayloadAction<ITeam>) => {
       state.name = null;
       state.foundationYear = null;
       state.division = null;

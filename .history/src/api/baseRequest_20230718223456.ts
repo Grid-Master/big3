@@ -12,9 +12,11 @@ type RequestGenericType<T> = {
   // Другие свойства для обобщенного типа
 };
 
-const base = process.env.REACT_APP_API;
+const base1 = process.env.REACT_APP_API;
+const base = 'http://dev.trainee.dex-it.ru/api';
 
 const request = async (url: string, data: IRequestBaseBody, token: string | undefined) => {
+  console.log('base 1', base1);
   const headersForToken = token
     ? {
         Authorization: `Bearer ${token}`,

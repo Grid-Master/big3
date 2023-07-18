@@ -14,7 +14,6 @@ const TeamInfo: FC = () => {
   const { name, division, foundationYear, conference, imageUrl } = useAppSelector(selectTeamInfo);
   //@ts-ignore
   const id = parseInt(location.pathname.split('/').pop(), 10);
-  console.log(process.env);
 
   return (
     <div className={styles.container}>

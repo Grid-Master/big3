@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { useLocation } from 'react-router-dom';
 import { useAppSelector } from '../../common/hooks/reduxHooks';
 import { selectTeamInfo } from '../../modules/teamInfo/teamInfoSelector';
 import Breadcrumbs from '../../common/components/breadcrumbs/Breadcrumbs';
@@ -10,11 +9,7 @@ import DeleteIcon from '../../assets/icons/DeleteIcon';
 import teamLogo from '../../assets/images/POR.png';
 
 const TeamInfo: FC = () => {
-  const location = useLocation();
   const { name, division, foundationYear, conference, imageUrl } = useAppSelector(selectTeamInfo);
-  //@ts-ignore
-  const id = parseInt(location.pathname.split('/').pop(), 10);
-  console.log(process.env);
 
   return (
     <div className={styles.container}>
@@ -23,7 +18,7 @@ const TeamInfo: FC = () => {
           <Breadcrumbs />
           <div>
             <EditIcon />
-            <DeleteIcon id={id} />
+            <DeleteIcon />
           </div>
         </div>
         <div className={styles.info}>

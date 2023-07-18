@@ -2,7 +2,8 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { ITeam } from '../../api/dto/ITeams';
 import { deleteTeam, getTeam } from './teamInfoThunk';
 
-const initialState: Omit<ITeam, 'id'> = {
+const initialState: ITeam = {
+  id: null,
   name: null,
   foundationYear: null,
   division: null,

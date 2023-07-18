@@ -51,18 +51,13 @@ const AddTeam: FC = () => {
   };
   return (
     <FormProvider {...methods}>
+      <img src={selectedImage ? URL.createObjectURL(selectedImage) : ''} />
       <form className={styles.form} onSubmit={methods.handleSubmit(submitHandler)}>
         <p>
           <Breadcrumbs />
         </p>
         <div className={styles.formContainer}>
           <div onClick={handleAddPhoto} className={styles.imageContainer}>
-            {selectedImage && (
-              <img
-                className={styles.prevImage}
-                src={selectedImage ? URL.createObjectURL(selectedImage) : ''}
-              />
-            )}
             <AddPhotoIcon />
             <input
               className={styles.hidden}

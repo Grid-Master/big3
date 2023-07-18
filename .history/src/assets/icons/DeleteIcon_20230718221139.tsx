@@ -1,32 +1,12 @@
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../common/hooks/reduxHooks';
-import { deleteTeam } from '../../modules/teamInfo/teamInfoThunk';
 
 interface IDeleteIcon {
-  id: number | null;
+  id: number;
 }
 
 const DeleteIcon: FC<IDeleteIcon> = ({ id }) => {
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-
-  const deleteItem = async () => {
-    if (id) {
-      await dispatch(deleteTeam(id));
-      alert('Team was deleted');
-      navigate('/teams');
-    }
-  };
-
   return (
-    <svg
-      onClick={deleteItem}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"

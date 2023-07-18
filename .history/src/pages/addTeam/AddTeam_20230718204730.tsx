@@ -1,4 +1,4 @@
-import { FC, useRef, useState, useEffect } from 'react';
+import { FC, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler, FormProvider } from 'react-hook-form';
 import Breadcrumbs from '../../common/components/breadcrumbs/Breadcrumbs';
@@ -14,17 +14,10 @@ import { addTeam } from '../../modules/teams/teamsThunk';
 const AddTeam: FC = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const imageUrl = useAppSelector((state) => state.AddTeamReducer.imageUrl);
+  // const imageUrl = useAppSelector((state) => state.AddTeamReducer.imageUrl);
   const photoAdder = useRef<HTMLInputElement>(null);
   const methods = useForm<Omit<ITeam, 'id'>>({});
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
-
-  useEffect(() => {
-    if (imageUrl) {
-      // Используйте imageUrl здесь
-      console.log('useeffect', imageUrl);
-    }
-  }, [imageUrl]);
 
   const handleImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
@@ -40,7 +33,9 @@ const AddTeam: FC = () => {
 
   const submitHandler: SubmitHandler<any> = async (data: Omit<Omit<ITeam, 'id'>, 'imageUrl'>) => {
     if (selectedImage) {
-      await dispatch(addImage(selectedImage));
+      const imageUrl = await dispatch(addImage(selectedImage));
+
+      //@ts-ignore
       await dispatch(addTeam({ ...data, imageUrl }));
       alert('Team was added');
       methods.reset();
@@ -57,12 +52,6 @@ const AddTeam: FC = () => {
         </p>
         <div className={styles.formContainer}>
           <div onClick={handleAddPhoto} className={styles.imageContainer}>
-            {selectedImage && (
-              <img
-                className={styles.prevImage}
-                src={selectedImage ? URL.createObjectURL(selectedImage) : ''}
-              />
-            )}
             <AddPhotoIcon />
             <input
               className={styles.hidden}

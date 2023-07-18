@@ -22,7 +22,7 @@ const AddTeam: FC = () => {
   useEffect(() => {
     if (imageUrl) {
       // Используйте imageUrl здесь
-      console.log('useeffect', imageUrl);
+      console.log(imageUrl);
     }
   }, [imageUrl]);
 
@@ -40,7 +40,9 @@ const AddTeam: FC = () => {
 
   const submitHandler: SubmitHandler<any> = async (data: Omit<Omit<ITeam, 'id'>, 'imageUrl'>) => {
     if (selectedImage) {
-      await dispatch(addImage(selectedImage));
+      const imageUrl = await dispatch(addImage(selectedImage));
+
+      //@ts-ignore
       await dispatch(addTeam({ ...data, imageUrl }));
       alert('Team was added');
       methods.reset();
@@ -57,12 +59,6 @@ const AddTeam: FC = () => {
         </p>
         <div className={styles.formContainer}>
           <div onClick={handleAddPhoto} className={styles.imageContainer}>
-            {selectedImage && (
-              <img
-                className={styles.prevImage}
-                src={selectedImage ? URL.createObjectURL(selectedImage) : ''}
-              />
-            )}
             <AddPhotoIcon />
             <input
               className={styles.hidden}

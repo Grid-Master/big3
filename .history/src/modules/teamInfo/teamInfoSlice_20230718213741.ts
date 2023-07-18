@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { ITeam } from '../../api/dto/ITeams';
-import { deleteTeam, getTeam } from './teamInfoThunk';
+import { getTeam } from './teamInfoThunk';
 
 const initialState: Omit<ITeam, 'id'> = {
   name: null,
@@ -15,7 +15,6 @@ const teamInfoSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers(builder) {
-    //get team
     builder.addCase(getTeam.pending, (state, action) => {});
     builder.addCase(getTeam.fulfilled, (state, action: PayloadAction<ITeam>) => {
       state.name = action.payload.name;
@@ -25,19 +24,7 @@ const teamInfoSlice = createSlice({
       state.imageUrl = action.payload.imageUrl;
     });
     builder.addCase(getTeam.rejected, (state, action) => {
-      console.log('get team error', action.error.message);
-    });
-    //dele team
-    builder.addCase(deleteTeam.pending, (state, action) => {});
-    builder.addCase(deleteTeam.fulfilled, (state) => {
-      state.name = null;
-      state.foundationYear = null;
-      state.division = null;
-      state.conference = null;
-      state.imageUrl = null;
-    });
-    builder.addCase(deleteTeam.rejected, (state, action) => {
-      console.log('get team error', action.error.message);
+      console.log('get team error');
     });
   },
 });
