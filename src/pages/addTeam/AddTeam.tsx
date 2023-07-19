@@ -24,6 +24,15 @@ const AddTeam: FC = () => {
   const methods = useForm<Omit<ITeam, 'id'>>({});
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
 
+<<<<<<< HEAD
+=======
+  useEffect(() => {
+    if (imageUrl) {
+      console.log('useeffect', imageUrl);
+    }
+  }, [imageUrl]);
+
+>>>>>>> b0a3ae505cf6816dbbbb76ebfb7dbeec4165c8f9
   const handleImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
       setSelectedImage(event.target.files[0]);
