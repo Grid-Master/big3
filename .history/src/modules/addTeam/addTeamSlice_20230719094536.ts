@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { ITeam } from '../../api/dto/ITeams';
-import { addImage } from './addTeamThunk';
+import { addImage, updateTeam } from './addTeamThunk';
 
 const initialState: Omit<ITeam, 'id'> = {
   name: null,
@@ -22,6 +22,12 @@ const addTeamSlice = createSlice({
     });
     builder.addCase(addImage.rejected, (state, action) => {
       console.log('get team error');
+    });
+    //updateTeam
+    builder.addCase(updateTeam.pending, (state, action) => {});
+    builder.addCase(updateTeam.fulfilled, (state, action: PayloadAction<ITeam>) => {});
+    builder.addCase(updateTeam.rejected, (state, action) => {
+      console.log('update team error', action.error.message);
     });
   },
 });
