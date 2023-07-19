@@ -21,7 +21,6 @@ const AddTeam: FC = () => {
 
   useEffect(() => {
     if (imageUrl) {
-      // Используйте imageUrl здесь
       console.log('useeffect', imageUrl);
     }
   }, [imageUrl]);
