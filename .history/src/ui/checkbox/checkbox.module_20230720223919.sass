@@ -1,0 +1,43 @@
+.checkbox
+    position: relative
+    margin-bottom: 24px
+    width: 100%
+    display: flex
+    align-content: center
+    color: var(--ui-grey, #707070)
+    font-size: 14px
+    font-style: normal
+    font-weight: 500
+    line-height: 24px
+    input
+        display: none
+    span
+        position: absolute
+        bottom: -16px
+        left: 0
+        color: var(--ui-lightest-red, #FF768E)
+        font-size: 12px
+        font-style: normal
+        font-weight: 500
+        line-height: 150%
+    .customCheck
+        width: 16px
+        height: 16px
+        transform: translateY(1px)
+        margin-right: 8px
+        &:hover
+            svg *
+                fill: var(--ui-red, #E4163A)
+    .customCheckActive
+        width: 16px
+        height: 16px
+        transform: translateY(1px)
+        margin-right: 8px
+        &:hover
+            svg *
+    .customCheckRequired
+        width: 16px
+        height: 16px
+        transform: translateY(1px)
+        margin-right: 8px
+        var(--ui-lightest-red, #FF768E);
