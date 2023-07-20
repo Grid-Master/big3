@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { useForm, SubmitHandler, FormProvider } from 'react-hook-form';
-import { useAppDispatch, useAppSelector } from '../../common/hooks/reduxHooks';
+import { useAppDispatch } from '../../common/hooks/reduxHooks';
 import { ISignUp } from '../../api/dto/IAuthorization';
 import { signUp } from '../../modules/authorization/authorizationThunk';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,6 @@ import Input from '../../ui/input/Input';
 import Button from '../../ui/button/Button';
 import styles from './signUp.module.sass';
 import backgroundImage from '../../assets/images/signupBackground.png';
-import { unwrapResult } from '@reduxjs/toolkit';
 
 interface ISignUpConfirm extends ISignUp {
   confirmPassword: string;
@@ -20,18 +19,13 @@ const SignUp: FC = () => {
   const methods = useForm<ISignUpConfirm>({});
   const isDisable = methods.watch('accept');
 
-  const submitHandler: SubmitHandler<ISignUpConfirm> = async (data) => {
-    const { userName, login, password, confirmPassword, accept } = data;
-    if (accept && password === confirmPassword) {
-      const response = await dispatch(signUp({ userName, login, password }));
-      //@ts-ignore
-      if (response.payload.status === 409) {
-        alert(`Error: User with this login already exists. Code: ${409}`);
-      } else {
+  const submitHandler: SubmitHandler<ISignUpConfirm> = (data) => {
+    if (isDisable) {
+      const { userName, login, password, confirmPassword, accept } = data;
+      if (accept && password === confirmPassword) {
+        dispatch(signUp({ userName, login, password }));
         methods.reset();
       }
-    } else {
-      alert('Passwords do not match');
     }
   };
 

@@ -19,8 +19,8 @@ const Menu: FC<IMenu> = ({ isBurger, setIsBurger }) => {
   const { pathname } = useLocation();
 
   const signOutHandle = () => {
-    setIsBurger(false);
     dispatch(signOut());
+    setIsBurger(false);
   };
 
   const disableBurger = () => {

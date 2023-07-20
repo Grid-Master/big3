@@ -19,19 +19,16 @@ const SignUp: FC = () => {
   const dispatch = useAppDispatch();
   const methods = useForm<ISignUpConfirm>({});
   const isDisable = methods.watch('accept');
+  const { error } = useAppSelector((data) => data.AuthorizationReducer);
 
   const submitHandler: SubmitHandler<ISignUpConfirm> = async (data) => {
     const { userName, login, password, confirmPassword, accept } = data;
     if (accept && password === confirmPassword) {
-      const response = await dispatch(signUp({ userName, login, password }));
-      //@ts-ignore
-      if (response.payload.status === 409) {
-        alert(`Error: User with this login already exists. Code: ${409}`);
-      } else {
-        methods.reset();
+      await dispatch(signUp({ userName, login, password }));
+      if (error) {
+        alert('Error! User with this login already exists');
       }
-    } else {
-      alert('Passwords do not match');
+      methods.reset();
     }
   };
 

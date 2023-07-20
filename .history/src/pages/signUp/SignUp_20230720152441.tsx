@@ -19,6 +19,7 @@ const SignUp: FC = () => {
   const dispatch = useAppDispatch();
   const methods = useForm<ISignUpConfirm>({});
   const isDisable = methods.watch('accept');
+  const { error } = useAppSelector((data) => data.AuthorizationReducer);
 
   const submitHandler: SubmitHandler<ISignUpConfirm> = async (data) => {
     const { userName, login, password, confirmPassword, accept } = data;
@@ -30,8 +31,6 @@ const SignUp: FC = () => {
       } else {
         methods.reset();
       }
-    } else {
-      alert('Passwords do not match');
     }
   };
 

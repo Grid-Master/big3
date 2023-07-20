@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IChange, ISignIn, ISignUp, IUser } from '../../api/dto/IAuthorization';
 import { RootState } from '../../configs/redux/store';
 import { post } from '../../api/baseRequest';
-import { ICustomError } from '../../common/interfaces/ICustomError';
 
 export const signUp = createAsyncThunk<IUser, ISignUp, { state: RootState }>(
   'signup',

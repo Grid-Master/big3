@@ -40,9 +40,7 @@ const Input: FC<IInput> = ({ name, type, label, value }) => {
         {label}
         <input
           className={
-            errors[name]?.type === 'required'
-              ? `${styles.requiredInput} ${styles.input}`
-              : styles.input
+            errors[name]?.type === 'required' ? `${styles.required} ${styles.input}` : styles.input
           }
           {...register(name, { required: true })}
           type={isVisible ? 'text' : 'password'}

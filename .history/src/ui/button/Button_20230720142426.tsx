@@ -11,7 +11,7 @@ interface IButton {
 const Button: FC<IButton> = ({ onClick, disable, typeButton, children }) => {
   const handleClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault();
-    if (onClick && !disable) {
+    if (onClick && disable) {
       onClick(e);
     }
   };

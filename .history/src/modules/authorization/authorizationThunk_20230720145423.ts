@@ -11,7 +11,7 @@ export const signUp = createAsyncThunk<IUser, ISignUp, { state: RootState }>(
       const res = await post(`/Auth/SignUp`, JSON.stringify(body));
       return res;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error as ICustomError);
     }
   },
 );

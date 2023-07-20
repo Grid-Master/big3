@@ -1,7 +1,6 @@
 import { IRequestBaseBody } from '../common/interfaces/IRequestBaseBody';
 
-// const base = process.env.REACT_APP_API;
-const base = 'http://dev.trainee.dex-it.ru/api';
+const base = process.env.REACT_APP_API;
 
 const request = async (url: string, data: IRequestBaseBody, token: string | undefined) => {
   const headersForToken = token

@@ -1,7 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { change, signIn, signUp } from './authorizationThunk';
 import { IIntitalState, IUser } from '../../api/dto/IAuthorization';
-import { ICustomError } from '../../common/interfaces/ICustomError';
 
 const initialState: IIntitalState = {
   name: null,
@@ -50,8 +49,6 @@ const authorizationSlice = createSlice({
     });
     builder.addCase(signUp.rejected, (state, action) => {
       state.loading = false;
-      //@ts-ignore
-      state.error = action.payload.status;
       console.log(action.payload);
     });
     //change

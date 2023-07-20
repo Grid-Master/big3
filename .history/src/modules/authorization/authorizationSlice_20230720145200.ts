@@ -48,10 +48,9 @@ const authorizationSlice = createSlice({
       state.avatarUrl = payload.avatarUrl;
       state.loading = false;
     });
-    builder.addCase(signUp.rejected, (state, action) => {
+    builder.addCase(signUp.rejected, (state, { payload }: PayloadAction<ICustomError>) => {
       state.loading = false;
-      //@ts-ignore
-      state.error = action.payload.status;
+      state.error = action.payload.code;
       console.log(action.payload);
     });
     //change

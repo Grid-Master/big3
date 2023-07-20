@@ -30,8 +30,6 @@ const SignUp: FC = () => {
       } else {
         methods.reset();
       }
-    } else {
-      alert('Passwords do not match');
     }
   };
 

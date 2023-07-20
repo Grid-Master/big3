@@ -51,7 +51,7 @@ const authorizationSlice = createSlice({
     builder.addCase(signUp.rejected, (state, action) => {
       state.loading = false;
       //@ts-ignore
-      state.error = action.payload.status;
+      state.error = action.payload.code;
       console.log(action.payload);
     });
     //change

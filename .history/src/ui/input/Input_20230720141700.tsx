@@ -39,17 +39,13 @@ const Input: FC<IInput> = ({ name, type, label, value }) => {
       <label className={styles.container}>
         {label}
         <input
-          className={
-            errors[name]?.type === 'required'
-              ? `${styles.requiredInput} ${styles.input}`
-              : styles.input
-          }
+          className={styles.input}
           {...register(name, { required: true })}
           type={isVisible ? 'text' : 'password'}
         />
         {type === 'password' && (
           <span className={styles.icon} onClick={visibileHandler}>
-            {!isVisible ? <ClosedEye /> : <Eye />}
+            {isVisible ? <ClosedEye /> : <Eye />}
           </span>
         )}
         {errors[name]?.type === 'required' && <p className={styles.required}>Required</p>}
