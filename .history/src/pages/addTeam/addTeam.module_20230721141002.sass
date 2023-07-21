@@ -1,0 +1,80 @@
+.form
+    margin: 0 auto
+    width: 1140px
+    height: fit-content
+    border-radius: 10px
+    background: #FFF
+    margin-top: 32px
+    z-index: 1
+    >p
+        padding: 24px 32px
+    .formContainer
+        position: relative
+        padding-top: 48px
+        padding: 48px 229px 48px 73px
+        display: flex
+        border-radius: 0 0 10px 10px
+        // background: var(--ui-white, #FFF)
+        .imageContainer
+            z-index: 2
+            position: relative
+            cursor: pointer
+            width: 336px
+            height: 261px
+            margin-right: 136px
+            border-radius: 10px
+            opacity: 0.5
+            background: var(--ui-light-grey, #9C9C9C)
+            display: flex
+            align-items: center
+            justify-content: center
+            .prevImage
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+                width: 144px
+                height: 144px
+                object-fit: cover
+        .imageRequired
+            position: absolute
+            bottom: 120px
+            left: 0
+            color: var(--ui-lightest-red, #FF768E)
+            font-size: 12px
+            font-style: normal
+            font-weight: 500
+            line-height: 150%
+
+        .inputsContainer
+            z-index: 2
+            flex: 1
+            >div
+
+                display: flex
+                gap: 24px
+
+.hidden
+    position: absolute
+    opacity: 0
+    height: 0
+    width: 0
+    line-height: 0
+    overflow: hidden
+    padding: 0
+    margin: 0
+
+@media (max-width: 1400px)
+    .form
+        width: 375px
+        .formContainer
+            flex-direction: column
+            padding: 48px 24px
+            .imageContainer
+                width: 185px
+                height: 144px
+                margin: 0 auto
+                margin-bottom: 48px
+                svg
+                    width: 40px
+                    height: 40px
