@@ -1,0 +1,66 @@
+
+.container
+    width: 100%
+    background: var(--ui-lightest-grey-1, #F6F6F6)
+    flex: 1
+    overflow-y: scroll
+    height: calc( 100vh - 80px )
+    z-index: 2
+    .top
+        width: 1140px
+        display: grid
+        grid-template-columns: repeat(3, 364px)
+        gap: 24px
+        margin: 0 auto
+        margin-top: 32px
+        >div
+            width: 364px
+            display: flex
+            justify-content: end
+            // align-content: flex-end
+    .bottom
+        width: 1140px
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin: 0 auto
+        margin-top: 32px
+        margin-bottom: 32px
+    .teamList
+        width: 1140px
+        margin: 0 auto
+        margin-top: 32px
+        display: grid
+        grid-template-columns: repeat(3, 364px)
+        gap: 24px
+
+@media (max-width: 1400px)
+    .container
+        .top
+            grid-template-columns: repeat(2, 364px)
+            justify-content: start
+        .top, .bottom
+            width: 752px
+        .teamList
+            width: 752px
+            grid-template-columns: repeat(2, 364px)
+@media (max-width: 1000px)
+    .container
+        position: absolute
+        top: 0
+        left: 0
+        .top
+            grid-template-columns: repeat(1, 351px)
+            gap: 16px
+            margin-top: 16px
+            width: 351px
+            >div
+                align-content: stretch
+
+        .teamList
+            grid-template-columns: repeat(2, 169.5px)
+            width: 351px
+            margin-top: 16px
+            gap: 12px
+        .bottom
+            width: 351px
