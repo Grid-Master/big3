@@ -1,0 +1,74 @@
+.container
+    // z-index: 1
+    display: block
+    width: 100%
+    color: var(--ui-grey, #707070)
+    font-size: 14px
+    font-style: normal
+    font-weight: 500
+    line-height: 24px
+    position: relative
+    margin-bottom: 26px
+    .input
+        box-sizing: border-box
+        padding-left: 12px
+        display: block
+        width: 100%
+        margin-top: 8px
+        height: 40px
+        border: none
+        outline: none
+        border-radius: 4px
+        background: #F6F6F6 !important
+        transition: .2s
+        &:hover
+            background: var(--ui-lightest-grey, #D1D1D1)
+        &:focus
+            box-shadow: 0px 0px 5px 0px #D9D9D9
+        &:required
+            border: 1px solid var(--ui-lightest-red, #FF768E)
+        &:-internal-autofill-selected
+            background: #F6F6F6 !important
+    .input[type='date']
+        color: var(--ui-dark-grey, #303030)
+        font-family: Avenir !important
+        font-size: 15px
+        font-style: normal
+        font-weight: 500
+        line-height: 24px
+        &::-webkit-calendar-picker-indicator
+            opacity: 0
+            width: 40%
+            height: 100%
+            background: none
+
+    svg *
+        fill: #9C9C9C
+    .input[type='date']:in-range::-webkit-datetime-edit-year-field,
+    .input[type='date']:in-range::-webkit-datetime-edit-month-field,
+    .input[type='date']:in-range::-webkit-datetime-edit-day-field,
+    .input[type='date']:in-range::-webkit-datetime-edit-text
+        color: transparent
+
+    .icon
+        cursor: pointer
+        position: absolute
+        top: 45px
+        right: 12px
+    .required
+        position: absolute
+        left: 0
+        bottom: -20px
+        color: var(--ui-lightest-red, #FF768E)
+        font-family: Avenir
+        font-size: 12px
+        font-style: normal
+        font-weight: 500
+        line-height: 150%
+    .requiredInput
+        border: 1px solid var(--ui-lightest-red, #FF768E)
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button
+        -webkit-appearance: none
+        margin: 0
+        display: none

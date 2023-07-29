@@ -1,0 +1,68 @@
+.form
+    margin: 0 auto
+    margin-top: 32px
+    border-radius: 10px
+    background: var(--ui-white, #FFF)
+    width: 1140px
+    height: fit-content
+    >p
+        padding: 24px 32px
+    .container
+        display: flex
+        position: relative
+        .imageContainer
+            cursor: pointer
+            position: relative
+            width: 336px
+            height: 261px
+            border-radius: 10px
+            // opacity: 0.5
+            background: var(--ui-light-grey, rgba(156, 156, 156, 0.5))
+            display: flex
+            justify-content: center
+            align-items: center
+            margin-top: 48px
+            margin-left: 73px
+            margin-right: 136px
+            .prevImage
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+                width: 100%
+                height: 100%
+                object-fit: cover
+                border-radius: 10px
+            img
+                opacity: 0.5
+        .required
+            border: 2px solid var(--ui-lightest-red, #FF768E)
+    .imageRequired
+        position: absolute
+        bottom: 200px
+        left: 73px
+        color: var(--ui-lightest-red, #FF768E)
+        font-size: 12px
+        font-style: normal
+        font-weight: 500
+        line-height: 150%
+
+        .inputsContainer
+            width: 366px
+            margin-top: 48px
+            margin-bottom: 48px
+            .inputsWrapper
+                display: flex
+                gap: 24px
+    .buttons
+        display: flex
+        gap: 24px
+.hidden
+    position: absolute
+    opacity: 0
+    height: 0
+    width: 0
+    line-height: 0
+    overflow: hidden
+    padding: 0
+    margin: 0
