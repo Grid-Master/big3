@@ -107,7 +107,7 @@ const AddPlayer: FC = () => {
         }),
       );
       const { id } = unwrapResult(addPlayerResponse);
-      dispatch(setAlert({ showed: true, message: 'Player successfully added', type: 'success' }));
+      alert('Player was added');
       methods.reset();
       await dispatch(getPlayer(id));
       navigate(`/players/${id}`);

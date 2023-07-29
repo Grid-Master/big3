@@ -118,9 +118,9 @@ const AddPlayer: FC = () => {
     findTeamName(team);
   }, []);
 
-  if (!teamName && id) {
-    return <p>Loading...</p>;
-  }
+  // if (!teamName && id) {
+  //   return <p>Loading...</p>;
+  // }
 
   return (
     <FormProvider {...methods}>
