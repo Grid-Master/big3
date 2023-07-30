@@ -35,15 +35,11 @@
         font-weight: 500
         line-height: 24px
         &::-webkit-calendar-picker-indicator
-            position: absolute
-            right: 0
-            top: 32px
-            width: 170px
-            height: 40px
-            background: transparent
+            // opacity: 1
+            width: 40%
+            // height: 100%
+            background: none
             z-index: 2
-            // &::-webkit-selection
-            //     background: none !important
 
     svg *
         fill: #9C9C9C
@@ -51,8 +47,11 @@
     .input[type='date']:in-range::-webkit-datetime-edit-month-field,
     .input[type='date']:in-range::-webkit-datetime-edit-day-field,
     .input[type='date']:in-range::-webkit-datetime-edit-text
+        // z-index: 3
+        position: absolute
+        top: 0
+        left: 0
         color: transparent
-        background-color: transparent
 
     .icon
         cursor: pointer

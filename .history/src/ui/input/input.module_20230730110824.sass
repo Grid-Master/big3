@@ -42,17 +42,26 @@
             height: 40px
             background: transparent
             z-index: 2
-            // &::-webkit-selection
-            //     background: none !important
+            &::-webkit-selection
+                background: none !important
 
     svg *
         fill: #9C9C9C
     .input[type='date']:in-range::-webkit-datetime-edit-year-field,
+    &::-webkit-selection
+        background: none !important
     .input[type='date']:in-range::-webkit-datetime-edit-month-field,
+    &::-webkit-selection
+        background: none !important
     .input[type='date']:in-range::-webkit-datetime-edit-day-field,
+    &::-webkit-selection
+        background: none !important
     .input[type='date']:in-range::-webkit-datetime-edit-text
+        z-index: 3
         color: transparent
         background-color: transparent
+    &::-webkit-selection
+        background: none !important
 
     .icon
         cursor: pointer
