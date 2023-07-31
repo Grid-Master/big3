@@ -195,12 +195,7 @@ const AddPlayer: FC = () => {
                 <Input name="weight" type="number" label="Weight (kg)" />
               </div>
               <div className={styles.inputsWrapper}>
-                <Input
-                  name="birthday"
-                  type="date"
-                  label="Birthday"
-                  value={birthday ? birthday.split('T')[0] : ''}
-                />
+                <Input name="birthday" type="date" label="Birthday" value={birthday} />
                 <Input name="number" type="number" label="Number" />
               </div>
             </div>

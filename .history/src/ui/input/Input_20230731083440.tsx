@@ -14,7 +14,7 @@ interface IInput {
 
 const Input: FC<IInput> = ({ name, type, label, value }) => {
   const [isVisible, setIsVisible] = useState<boolean>(true);
-  const [dateValue, setDateValue] = useState<string>('');
+  const [dateValue, setDateValue] = useState<string>(value ? value : '');
 
   const dateValueHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDateValue(e.target.value);
@@ -28,9 +28,6 @@ const Input: FC<IInput> = ({ name, type, label, value }) => {
   useEffect(() => {
     if (type === 'password') {
       setIsVisible(false);
-    }
-    if (value && type === 'date') {
-      setDateValue(value);
     }
   }, []);
 

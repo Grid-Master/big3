@@ -9,15 +9,17 @@ interface IInput {
   name: string;
   type: string;
   label: string;
-  value?: string | (() => string);
 }
 
-const Input: FC<IInput> = ({ name, type, label, value }) => {
+const Input: FC<IInput> = ({ name, type, label }) => {
   const [isVisible, setIsVisible] = useState<boolean>(true);
-  const [dateValue, setDateValue] = useState<string>('');
+  const calendarRef = useRef<HTMLInputElement>(null);
 
-  const dateValueHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDateValue(e.target.value);
+  const openDateDropdown = () => {
+    // if (calendarRef.current) {
+    //   //@ts-ignore
+    //   calendarRef.current.firstChild.click();
+    // }
   };
 
   const {
@@ -29,30 +31,24 @@ const Input: FC<IInput> = ({ name, type, label, value }) => {
     if (type === 'password') {
       setIsVisible(false);
     }
-    if (value && type === 'date') {
-      setDateValue(value);
-    }
   }, []);
 
   const visibileHandler = () => {
     setIsVisible(!isVisible);
   };
+
   return (
     <>
       <label className={styles.container}>
         {label}
         {type === 'date' ? (
           <input
-            {...register(name, { required: true })}
-            value={dateValue}
-            onChange={dateValueHandler}
             type="date"
             className={
               errors[name]?.type === 'required' || errors[name]?.type === 'manual'
                 ? `${styles.requiredInput} ${styles.input}`
                 : styles.input
             }
-            autoComplete={'off'}
           />
         ) : (
           <input
@@ -72,7 +68,7 @@ const Input: FC<IInput> = ({ name, type, label, value }) => {
           </span>
         )}
         {type === 'date' && (
-          <div className={styles.icon}>
+          <div onClick={openDateDropdown} className={styles.icon}>
             <Calendar />
           </div>
         )}

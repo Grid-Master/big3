@@ -57,7 +57,7 @@ const AddTeam: FC = () => {
       if (data.foundationYear > 2023) {
         methods.setError('foundationYear', {
           type: 'manual',
-          message: `You can't set a year greater than the current year!`,
+          message: `You can't create a team with a year greater than current year!`,
         });
         return;
       } else if (data.foundationYear?.toString().length !== 4) {

@@ -199,7 +199,7 @@ const AddPlayer: FC = () => {
                   name="birthday"
                   type="date"
                   label="Birthday"
-                  value={birthday ? birthday.split('T')[0] : ''}
+                  value={birthday.split('T')[0]}
                 />
                 <Input name="number" type="number" label="Number" />
               </div>
