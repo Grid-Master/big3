@@ -1,0 +1,19 @@
+.container
+    >div
+        >div
+            >div
+                // position: relative
+                &::after
+                    textAlign: center
+                    color: #fff
+                    background: #E4163A
+                    position: absolute
+                    right: -23px
+                    top: -1px
+                    content: '...'
+                    width: 20px
+                    height: 24px
+                    border-radius: 4px
+                >div
+                    &:nth-child(n+3)
+                        display: none

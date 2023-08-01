@@ -1,0 +1,24 @@
+@media (max-width: 1400px)
+    .container
+        .top, .bottom
+            width: 752px
+        .teamList
+            width: 752px
+            grid-template-columns: repeat(2, 364px)
+@media (max-width: 1000px)
+    .container
+        position: absolute
+        top: 0
+        left: 0
+        .top
+            flex-direction: column
+            gap: 16px
+            margin-top: 16px
+            width: 351px
+        .teamList
+            grid-template-columns: repeat(2, 169.5px)
+            width: 351px
+            margin-top: 16px
+            gap: 12px
+        .bottom
+            width: 351px

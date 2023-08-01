@@ -8,6 +8,7 @@ export interface IPlayer {
   height: number | null;
   weight: number | null;
   avatarUrl: string | null;
+  teamName?: string | null;
 }
 
 export interface IPlayers {
