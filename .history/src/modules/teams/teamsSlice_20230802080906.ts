@@ -1,8 +1,7 @@
-import { PayloadAction, createSlice, isRejectedWithValue, SerializedError } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { addTeam, getTeams } from './teamsThunk';
 import { ITeam } from '../../api/dto/ITeams';
 import { IInitial } from '../../common/interfaces/IInitial';
-import { ICustomError } from '../../common/interfaces/ICustomError';
 
 const initialState: IInitial<ITeam[]> = {
   data: [],
@@ -25,7 +24,6 @@ const teamsSlice = createSlice({
     builder.addCase(addTeam.rejected, (state, action) => {
       console.log('add team error: ', action.error.message);
     });
-
     //get teams
     builder.addCase(getTeams.pending, (state, action) => {});
     builder.addCase(getTeams.fulfilled, (state, action: PayloadAction<IInitial<ITeam[]>>) => {

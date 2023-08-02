@@ -7,6 +7,7 @@ export const getTeam = createAsyncThunk<ITeam, number, { state: RootState }>(
   'getteam',
   async (id, { getState, rejectWithValue }) => {
     const { token } = getState().AuthorizationReducer;
+    //const token = localStorage.getItem('token');
     try {
       if (token) {
         const res = await get(`/Team/Get?id=${id}`, token);

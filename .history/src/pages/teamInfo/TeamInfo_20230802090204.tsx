@@ -6,8 +6,8 @@ import Breadcrumbs from '../../common/components/breadcrumbs/Breadcrumbs';
 import Roster from '../../modules/teamInfo/components/roster/Roster';
 import styles from './teamInfo.module.sass';
 import EditIcon from '../../assets/icons/EditIcon';
-import RemoveButton from '../../common/components/removeButton/RemoveButton';
 import DeleteIcon from '../../assets/icons/DeleteIcon';
+import RemoveButton from '../../common/components/removeButton/RemoveButton';
 
 const TeamInfo: FC = () => {
   const params = useParams();

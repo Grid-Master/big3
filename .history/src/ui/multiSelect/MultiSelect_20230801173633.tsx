@@ -15,10 +15,14 @@ interface IMultiSelect {
 
 const MultiSelect: FC<IMultiSelect> = ({ options, setTeamIds }) => {
   const [totalCount, setTotalCount] = useState<number>(0);
+  const [names, setNames] = useState<string[]>([]);
+  const [value, setValue] = useState<IOption[]>([]);
 
   const handleSelectChange = (selectedOptions: IOption[]) => {
     setTeamIds(selectedOptions.map((option) => option.id));
+
     setTotalCount(selectedOptions.length);
+    setValue(selectedOptions);
   };
 
   const styles: StylesConfig = {
@@ -201,7 +205,7 @@ const MultiSelect: FC<IMultiSelect> = ({ options, setTeamIds }) => {
         menuPlacement="bottom"
         isMulti
         maxValue={2}
-        //@ts-ignore
+        // @ts-ignore
         onChange={handleSelectChange}
       />
     </div>

@@ -5,20 +5,21 @@ import { IInitial } from '../../common/interfaces/IInitial';
 import { get, post } from '../../api/baseRequest';
 import { ICustomError } from '../../common/interfaces/ICustomError';
 
-export const addTeam = createAsyncThunk<ITeam, Omit<ITeam, 'id'>, { state: RootState }>(
-  'newteam',
-  async (body, { getState, rejectWithValue }) => {
-    const { token } = getState().AuthorizationReducer;
-    try {
-      if (token) {
-        const res = await post(`/Team/Add`, JSON.stringify(body), token);
-        return res;
-      }
-    } catch (error) {
-      return rejectWithValue(error);
+export const addTeam = createAsyncThunk<
+  ITeam | ICustomError,
+  Omit<ITeam, 'id'>,
+  { state: RootState }
+>('newteam', async (body, { getState, rejectWithValue }) => {
+  const { token } = getState().AuthorizationReducer;
+  try {
+    if (token) {
+      const res = await post(`/Team/Add`, JSON.stringify(body), token);
+      return res;
     }
-  },
-);
+  } catch (error) {
+    return rejectWithValue(error);
+  }
+});
 
 export const getTeams = createAsyncThunk<
   IInitial<ITeam[]>,

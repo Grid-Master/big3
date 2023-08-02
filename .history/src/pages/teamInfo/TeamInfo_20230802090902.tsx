@@ -22,6 +22,7 @@ const TeamInfo: FC = () => {
           <div>
             <EditIcon path="/updateTeam" id={id} />
             <RemoveButton id={id} />
+            <DeleteIcon id={id} />
           </div>
         </div>
         <div className={styles.info}>

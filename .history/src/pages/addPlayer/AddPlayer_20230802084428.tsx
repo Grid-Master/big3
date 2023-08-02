@@ -97,7 +97,6 @@ const AddPlayer: FC = () => {
           id: +id,
         }),
       );
-      console.log(updatePlayerResponse);
       //@ts-ignore
       if (updatePlayerResponse.payload.status === 409) {
         methods.setError('name', {

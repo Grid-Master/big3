@@ -7,7 +7,6 @@ import styles from './playerInfo.module.sass';
 import { useAppSelector } from '../../common/hooks/reduxHooks';
 import { selectPlayerInfo } from '../../modules/playerInfo/playerInfoSelector';
 import { calculateAge } from '../../common/utils/utils';
-import RemoveButton from '../../common/components/removeButton/RemoveButton';
 
 const PlayerInfo: FC = () => {
   const params = useParams();
@@ -24,7 +23,7 @@ const PlayerInfo: FC = () => {
           <Breadcrumbs page="Players" item={name} />
           <div>
             <EditIcon path="/updatePlayer" id={+id} />
-            <RemoveButton id={+id} />
+            <DeleteIcon id={+id} />
           </div>
         </div>
         <div className={styles.info}>

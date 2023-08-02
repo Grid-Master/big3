@@ -201,7 +201,7 @@ const MultiSelect: FC<IMultiSelect> = ({ options, setTeamIds }) => {
         menuPlacement="bottom"
         isMulti
         maxValue={2}
-        //@ts-ignore
+        // @ts-ignore
         onChange={handleSelectChange}
       />
     </div>

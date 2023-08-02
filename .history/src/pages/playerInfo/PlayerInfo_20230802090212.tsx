@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import Breadcrumbs from '../../common/components/breadcrumbs/Breadcrumbs';
 import EditIcon from '../../assets/icons/EditIcon';
-import DeleteIcon from '../../assets/icons/DeleteIcon';
 import styles from './playerInfo.module.sass';
 import { useAppSelector } from '../../common/hooks/reduxHooks';
 import { selectPlayerInfo } from '../../modules/playerInfo/playerInfoSelector';

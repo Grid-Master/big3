@@ -22,8 +22,9 @@ const teamsSlice = createSlice({
       state.data.push(action.payload);
       state.count = state.data.length;
     });
-    builder.addCase(addTeam.rejected, (state, action) => {
-      console.log('add team error: ', action.error.message);
+    builder.addMatcher(isRejectedWithValue(addTeam), (state, action) => {
+      const error: ICustomError = action.payload as ICustomError;
+      console.log('add team error:', error.status);
     });
 
     //get teams

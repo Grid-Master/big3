@@ -17,13 +17,14 @@ const teamsSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     //add new team
+    builder.addMatcher(isRejectedWithValue(addTeam), (state, action) => {
+      const error: ICustomError = action.payload as ICustomError;
+      console.log('add team error:', error.status);
+    });
     builder.addCase(addTeam.pending, (state, action) => {});
     builder.addCase(addTeam.fulfilled, (state, action: PayloadAction<ITeam>) => {
       state.data.push(action.payload);
       state.count = state.data.length;
-    });
-    builder.addCase(addTeam.rejected, (state, action) => {
-      console.log('add team error: ', action.error.message);
     });
 
     //get teams

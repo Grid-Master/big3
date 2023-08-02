@@ -32,6 +32,13 @@ const AddTeam: FC = () => {
     control,
     formState: { errors },
   } = methods;
+  // const [selectedImage, setSelectedImage] = useState<File | null>(null);
+
+  // const handleImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (event.target.files && event.target.files.length > 0) {
+  //     setSelectedImage(event.target.files[0]);
+  //   }
+  // };
 
   const handleAddPhoto = () => {
     if (imageAdder.current) {

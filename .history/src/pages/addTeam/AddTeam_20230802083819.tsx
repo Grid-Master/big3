@@ -13,7 +13,6 @@ import { addImage, getTeam, updateTeam } from '../../modules/teamInfo/teamInfoTh
 import { selectTeamInfo } from '../../modules/teamInfo/teamInfoSelector';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { setAlert } from '../../modules/alert/alertSlice';
-import useImageUploader from '../../common/hooks/useImageUploader';
 
 interface IForm extends Omit<ITeam, 'id'> {
   image: string | null;
@@ -24,7 +23,6 @@ const AddTeam: FC = () => {
   const { id } = params;
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { selectedImage, handleImageChange } = useImageUploader();
   const { name, division, conference, foundationYear, imageUrl } = useAppSelector(selectTeamInfo);
   const imageAdder = useRef<HTMLInputElement>(null);
   const methods = useForm<IForm>({ defaultValues: { name, division, conference, foundationYear } });
@@ -32,6 +30,13 @@ const AddTeam: FC = () => {
     control,
     formState: { errors },
   } = methods;
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
+
+  const handleImageChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      setSelectedImage(event.target.files[0]);
+    }
+  };
 
   const handleAddPhoto = () => {
     if (imageAdder.current) {

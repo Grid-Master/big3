@@ -1,4 +1,4 @@
-import { FC, useState, useRef } from 'react';
+import { FC, useState, useRef, useEffect, useLayoutEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { FormProvider, useForm, SubmitHandler, Controller } from 'react-hook-form';
 import Breadcrumbs from '../../common/components/breadcrumbs/Breadcrumbs';
@@ -18,7 +18,6 @@ import { unwrapResult } from '@reduxjs/toolkit';
 import { getPlayer, updatePlayer } from '../../modules/playerInfo/playerInfoThunk';
 import { IOption } from '../../ui/multiSelect/MultiSelect';
 import { setAlert } from '../../modules/alert/alertSlice';
-import useImageUploader from '../../common/hooks/useImageUploader';
 
 interface IDataSubmit extends Omit<Omit<IPlayer, 'position'>, 'team'> {
   position: IOption;
@@ -31,7 +30,7 @@ const AddPlayer: FC = () => {
   const imageAdder = useRef<HTMLInputElement>(null);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { selectedImage, handleImageChange } = useImageUploader();
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const { avatarUrl, name, number, position, team, weight, height, birthday, teamName } =
     useAppSelector(selectPlayerInfo);
   const methods = useForm<Omit<IPlayer, 'id'>>({
@@ -41,6 +40,12 @@ const AddPlayer: FC = () => {
     control,
     formState: { errors },
   } = methods;
+
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      setSelectedImage(event.target.files[0]);
+    }
+  };
 
   const handleAddPhoto = () => {
     if (imageAdder.current) {
@@ -97,7 +102,6 @@ const AddPlayer: FC = () => {
           id: +id,
         }),
       );
-      console.log(updatePlayerResponse);
       //@ts-ignore
       if (updatePlayerResponse.payload.status === 409) {
         methods.setError('name', {

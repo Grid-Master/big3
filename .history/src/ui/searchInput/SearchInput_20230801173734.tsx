@@ -3,11 +3,12 @@ import styles from './searchInput.module.sass';
 import SearchIcon from '../../assets/icons/SearchIcon';
 import useDebounce from '../../common/hooks/useDebounce';
 
-interface ISearchInput {
+interface ISerachInput {
+  name: string;
   setName: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SearchInput: FC<ISearchInput> = ({ setName }) => {
+const SearchInput: FC<ISerachInput> = ({ setName }) => {
   const [value, setValue] = useState<string>('');
   const setSearchName = useDebounce(setName, 300);
   const handleValue = (e: React.ChangeEvent<HTMLInputElement>) => {
