@@ -11,6 +11,7 @@ import Button from '../../common/components/button/Button';
 import { selectTeams } from '../../modules/teams/teamsSelector';
 import { clearTeamInfo } from '../../modules/teamInfo/teamInfoSlice';
 import SearchInput from '../../common/components/searchInput/SearchInput';
+import NotFound from '../notFound/NotFound';
 import { setAlert } from '../../modules/alert/alertSlice';
 
 const Teams: FC = () => {
@@ -56,7 +57,7 @@ const Teams: FC = () => {
         </Button>
       </div>
       {isLoading ? (
-        <div style={{ fontSize: '30px' }}>Loading</div>
+        <div>Loading</div>
       ) : data && data.length ? (
         <>
           <div className={styles.teamList}>

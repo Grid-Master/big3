@@ -14,6 +14,7 @@ import { unwrapResult } from '@reduxjs/toolkit';
 import { clearPlayerInfo } from '../../modules/playerInfo/playerInfoSlice';
 import MultiSelect, { IOption } from '../../common/components/multiSelect/MultiSelect';
 import SearchInput from '../../common/components/searchInput/SearchInput';
+import NotFound from '../notFound/NotFound';
 import { setAlert } from '../../modules/alert/alertSlice';
 
 const Players: FC = () => {
@@ -65,6 +66,8 @@ const Players: FC = () => {
       dispatch(setAlert({ showed: true, message: 'Not found!', type: 'failure' }));
     }
   }, [name, currentPage, selectedSize, teamIds, error]);
+
+  // if (isLoading) return <div>Loading...</div>;
 
   return (
     <div className={styles.container}>

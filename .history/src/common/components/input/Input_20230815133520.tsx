@@ -42,6 +42,7 @@ const Input: FC<IInput> = ({ name, type, label, value }) => {
     <>
       <label className={styles.container}>
         {label}
+
         <input
           {...register(name, { required: true })}
           className={
@@ -53,6 +54,7 @@ const Input: FC<IInput> = ({ name, type, label, value }) => {
           type={!isVisible ? type : type === 'number' ? type : type === 'date' ? type : 'text'}
           autoComplete={'off'}
         />
+
         {type === 'password' && (
           <span className={styles.icon} onClick={visibileHandler}>
             {!isVisible ? <ClosedEye /> : <Eye />}

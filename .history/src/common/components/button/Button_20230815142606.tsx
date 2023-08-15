@@ -16,9 +16,19 @@ const Button: FC<IButton> = ({ onClick, disable, typeButton, children }) => {
     }
   };
 
+  if (typeButton) {
+    return (
+      <button
+        className={!disable ? styles[typeButton] : `${styles[typeButton]} ${styles.disable}`}
+        onClick={handleClick}>
+        {children}
+      </button>
+    );
+  }
+
   return (
     <button
-      className={!disable ? styles[typeButton] : `${styles[typeButton]} ${styles.disable}`}
+      className={!disable ? styles.button : `${styles.button} ${styles.disable}`}
       onClick={handleClick}>
       {children}
     </button>

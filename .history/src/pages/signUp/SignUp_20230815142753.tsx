@@ -12,7 +12,7 @@ import Input from '../../common/components/input/Input';
 import Checkbox from '../../common/components/checkbox/Checkbox';
 import { selectAuthorization } from '../../modules/authorization/authorizationSelector';
 
-export interface ISignUpConfirm extends ISignUp {
+interface ISignUpConfirm extends ISignUp {
   confirmPassword: string;
   accept: boolean;
 }

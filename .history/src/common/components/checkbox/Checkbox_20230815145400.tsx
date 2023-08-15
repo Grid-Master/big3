@@ -1,5 +1,5 @@
 import { FC, useRef } from 'react';
-import { useController, Control } from 'react-hook-form';
+import { useController, Control, FieldValues } from 'react-hook-form';
 import styles from './checkbox.module.sass';
 import { ISignUpConfirm } from '../../../pages/signUp/SignUp';
 

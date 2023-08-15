@@ -49,6 +49,7 @@ const Input: FC<IInput> = ({ name, type, label, value }) => {
               ? `${styles.requiredInput} ${styles.input}`
               : styles.input
           }
+          defaultValue={type === 'date' ? dateValue : undefined}
           onChange={type === 'date' ? dateValueHandler : undefined}
           type={!isVisible ? type : type === 'number' ? type : type === 'date' ? type : 'text'}
           autoComplete={'off'}

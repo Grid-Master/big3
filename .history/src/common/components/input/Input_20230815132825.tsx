@@ -42,17 +42,32 @@ const Input: FC<IInput> = ({ name, type, label, value }) => {
     <>
       <label className={styles.container}>
         {label}
-        <input
-          {...register(name, { required: true })}
-          className={
-            errors[name]?.type === 'required' || errors[name]?.type === 'manual'
-              ? `${styles.requiredInput} ${styles.input}`
-              : styles.input
-          }
-          onChange={type === 'date' ? dateValueHandler : undefined}
-          type={!isVisible ? type : type === 'number' ? type : type === 'date' ? type : 'text'}
-          autoComplete={'off'}
-        />
+        {type === 'date' ? (
+          <input
+            {...register(name, { required: true })}
+            value={dateValue}
+            onChange={dateValueHandler}
+            type="date"
+            className={
+              errors[name]?.type === 'required' || errors[name]?.type === 'manual'
+                ? `${styles.requiredInput} ${styles.input}`
+                : styles.input
+            }
+            autoComplete={'off'}
+          />
+        ) : (
+          <input
+            {...register(name, { required: true })}
+            value={''}
+            className={
+              errors[name]?.type === 'required' || errors[name]?.type === 'manual'
+                ? `${styles.requiredInput} ${styles.input}`
+                : styles.input
+            }
+            type={!isVisible ? type : type === 'number' ? type : 'text'}
+            autoComplete={'off'}
+          />
+        )}
         {type === 'password' && (
           <span className={styles.icon} onClick={visibileHandler}>
             {!isVisible ? <ClosedEye /> : <Eye />}

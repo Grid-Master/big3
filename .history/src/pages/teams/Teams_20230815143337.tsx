@@ -11,6 +11,7 @@ import Button from '../../common/components/button/Button';
 import { selectTeams } from '../../modules/teams/teamsSelector';
 import { clearTeamInfo } from '../../modules/teamInfo/teamInfoSlice';
 import SearchInput from '../../common/components/searchInput/SearchInput';
+import NotFound from '../notFound/NotFound';
 import { setAlert } from '../../modules/alert/alertSlice';
 
 const Teams: FC = () => {

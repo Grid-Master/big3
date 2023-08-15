@@ -28,7 +28,7 @@ const SingleSelect: FC<ISelect> = ({ label, query, name, defaultOption }) => {
   } = useFormContext();
 
   const fetchOptions = async () => {
-    const res = await dispatch(query());
+    const res = await dispatch(query() as any);
     const fetchedOptions = unwrapResult(res).map((el: IOption) =>
       typeof el === 'string'
         ? { value: el, label: el }

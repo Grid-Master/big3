@@ -37,6 +37,7 @@ const Input: FC<IInput> = ({ name, type, label, value }) => {
   const visibileHandler = () => {
     setIsVisible(!isVisible);
   };
+  console.log(dateValue);
 
   return (
     <>

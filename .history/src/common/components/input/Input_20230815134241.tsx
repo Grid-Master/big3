@@ -37,6 +37,7 @@ const Input: FC<IInput> = ({ name, type, label, value }) => {
   const visibileHandler = () => {
     setIsVisible(!isVisible);
   };
+  console.log(dateValue);
 
   return (
     <>
@@ -49,6 +50,7 @@ const Input: FC<IInput> = ({ name, type, label, value }) => {
               ? `${styles.requiredInput} ${styles.input}`
               : styles.input
           }
+          defaultValue={type === 'date' ? 11111 : undefined}
           onChange={type === 'date' ? dateValueHandler : undefined}
           type={!isVisible ? type : type === 'number' ? type : type === 'date' ? type : 'text'}
           autoComplete={'off'}
